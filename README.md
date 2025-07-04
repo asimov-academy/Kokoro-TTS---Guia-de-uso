@@ -4,7 +4,13 @@ Este repositório contém uma guia criado pela Asimov Academy do **Kokoro TTS**,
 
 ## 🚀 Instalação
 
-### Pré-requisitos
+### 1. Clonar o repositório
+```bash
+git clone https://github.com/asimov-academy/Kokoro-TTS---Guia-de-uso
+cd Kokoro-TTS---Guia-de-uso
+```
+
+### 2. Pré-requisitos
 
 1. **Instalar uv** (gerenciador de pacotes Python):
 ```bash
@@ -24,7 +30,7 @@ apt-get -qq -y install espeak-ng
 - Baixe o arquivo *.msi apropriado (ex: espeak-ng-20191129-b702b03-x64.msi)
 - Execute o instalador baixado
 
-### Instalar dependências do projeto
+### 3. Instalar dependências do projeto
 ```bash
 uv sync
 ```
