@@ -94,51 +94,14 @@ Você pode conferir todas as vozes disponíveis aqui:
 - `pm_santa` - Voz masculina
 - `pf_dora` - Voz feminina brasileira
 
-## 💻 Exemplos de Uso
-
-### Geração básica de áudio
-```python
-from kokoro import KPipeline
-import soundfile as sf
-import numpy as np
-
-pipeline = KPipeline(lang_code='p')
-generator = pipeline("Olá mundo!", voice='pf_dora')
-
-audio_chunks = []
-for gs, ps, audio in generator:
-    audio_chunks.append(audio)
-
-if audio_chunks:
-    audio_completo = np.concatenate(audio_chunks)
-    sf.write('saida.wav', audio_completo, 24000)
-```
-
-### Streaming em tempo real
-```python
-from kokoro_stream import stream_kokoro_local
-
-# O script já está configurado para streaming
-# Basta executar: python kokoro_stream.py
-```
 
 ## 🛠️ Dependências
-
 - `kokoro>=0.9.4` - Modelo TTS
 - `soundfile>=0.13.1` - Manipulação de arquivos de áudio
 - `pyaudio>=0.2.11` - Streaming de áudio
 - `numpy>=1.24.0` - Processamento de arrays
 - `torch` - Framework de deep learning
 
-## 📝 Estrutura do Projeto
-
-```
-Kokoro TTS/
-├── kokoro_basic.py      # Geração básica de áudio
-├── kokoro_stream.py     # Streaming em tempo real
-├── pyproject.toml       # Dependências do projeto
-└── README.md           # Este arquivo
-```
 
 ## 🎯 Casos de Uso
 
@@ -148,9 +111,7 @@ Kokoro TTS/
 - **Educação** - Ferramentas de aprendizado
 - **Streaming** - Reprodução em tempo real
 
-## 📄 Licença
 
-Este projeto segue a licença Apache do Kokoro TTS.
 
 ## 🔗 Links Úteis
 
