@@ -1,9 +1,30 @@
 # Kokoro TTS - Guia de Uso
 
-Este repositório contém scripts de demonstração para o **Kokoro TTS**, um modelo de síntese de fala leve e eficiente com 82 milhões de parâmetros.
+Este repositório contém uma guia criado pela Asimov Academy do **Kokoro TTS**, um modelo de síntese de fala leve e eficiente com 82 milhões de parâmetros.
 
 ## 🚀 Instalação
 
+### Pré-requisitos
+
+1. **Instalar uv** (gerenciador de pacotes Python):
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+2. **Instalar espeak-ng** (necessário para síntese de fala):
+
+**Linux:**
+```bash
+apt-get -qq -y install espeak-ng
+```
+
+**Windows:**
+- Vá para [espeak-ng releases](https://github.com/espeak-ng/espeak-ng/releases)
+- Clique em "Latest release"
+- Baixe o arquivo *.msi apropriado (ex: espeak-ng-20191129-b702b03-x64.msi)
+- Execute o instalador baixado
+
+### Instalar dependências do projeto
 ```bash
 uv sync
 ```
@@ -95,42 +116,6 @@ from kokoro_stream import stream_kokoro_local
 # Basta executar: python kokoro_stream.py
 ```
 
-## 🔧 Configuração dos Scripts
-
-### kokoro_basic.py
-```python
-# Configurar idioma
-lang_code = 'p'  # Português brasileiro
-
-# Configurar voz
-voice = 'pf_dora'  # Voz feminina brasileira
-
-# Texto para converter
-text = '''
-Seu texto aqui...
-'''
-```
-
-### kokoro_stream.py
-```python
-# Configurar idioma
-pipeline = KPipeline(lang_code='p')
-
-# Configurar voz
-generator = pipeline(texto, voice='pm_santa')
-
-# Texto para streaming
-texto = "Seu texto para streaming..."
-```
-
-## 📊 Especificações Técnicas
-
-- **Sample Rate:** 24000 Hz
-- **Formato:** Float32
-- **Canais:** Mono (1 canal)
-- **Modelo:** Kokoro 82M (82 milhões de parâmetros)
-- **Licença:** Apache
-
 ## 🛠️ Dependências
 
 - `kokoro>=0.9.4` - Modelo TTS
@@ -138,31 +123,6 @@ texto = "Seu texto para streaming..."
 - `pyaudio>=0.2.11` - Streaming de áudio
 - `numpy>=1.24.0` - Processamento de arrays
 - `torch` - Framework de deep learning
-
-## 🔍 Troubleshooting
-
-### Problemas com pyaudio no macOS
-```bash
-brew install portaudio
-pip install pyaudio
-```
-
-### Problemas com pyaudio no Ubuntu
-```bash
-sudo apt-get install portaudio19-dev
-pip install pyaudio
-```
-
-### Problemas com idiomas específicos
-Para japonês:
-```bash
-pip install misaki[ja]
-```
-
-Para chinês:
-```bash
-pip install misaki[zh]
-```
 
 ## 📝 Estrutura do Projeto
 
